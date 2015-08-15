@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150815164349) do
+ActiveRecord::Schema.define(version: 20150815165225) do
 
   create_table "coaches", force: :cascade do |t|
     t.string   "coachname"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150815164349) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "coach_id"
   end
 
 end
