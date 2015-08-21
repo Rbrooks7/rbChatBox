@@ -1,6 +1,4 @@
-<p>
-    <h1><%= @topic.title %></h1>
-</p>
+<%= render 'shared/page_title', title: @topic.title %>
 <div class="row">
     <div class="col-md-4 pull-right center">
         <%= gravatar_for @topic.coach, size:200 %>
@@ -9,7 +7,8 @@
         </p>
     </div>
     <div class="col-md-8">
-        <h3></h3>
+        <%= link_to "Edit this topic", edit_topic_path(@topic), class: "btn btn-success pull-right" %>
+        <h3><%= @topic.created_at %></h3>
         <div class="well">
             <strong><%= @topic.coach.coachname %> says:</strong><br/>
             <%= @topic.body %>

@@ -1,0 +1,15 @@
+<%= render 'shared/errors', obj: @topic %>
+
+<div class="row">
+    <div class="well col-md-8 col-md-offset-2">
+        <%= form_for @topic do |f| %>
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+            
+            <%= f.label :body %>
+            <%= f.text_area :body, rows: 10 %>
+        
+            <%= f.submit(@topic.new_record? ? 'Create Post' : 'Edit Topic', class: "btn btn-success") %>
+        <% end %>
+    </div>
+</div>
