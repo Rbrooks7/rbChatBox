@@ -1,0 +1,23 @@
+<h1>All Topics</h1>
+<hr/>
+
+<% @topics.each do |topic| %>
+    <div class="row">
+        
+        <div class="col-md-2">
+            <section class="coach_info center">
+                <%= gravatar_for topic.coach, size: 100 %>
+                <h5>Playa: <%= topic.coach.coachname %></h5>
+            </section>
+        </div>
+        
+        <div class="col-lg-8 well">
+            <h4><%= link_to topic.title, topic_path(topic) %></h4>
+            <p><%= topic.body %></p>
+            <p>
+                <span class="quiet"><small><%= time_ago_in_words(topic.created_at) %> ago</small></span>
+            </p>
+        </div>
+    </div>
+    <hr/>
+<% end %>

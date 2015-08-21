@@ -1,0 +1,20 @@
+<p>
+    <h1><%= @topic.title %></h1>
+</p>
+<div class="row">
+    <div class="col-md-4 pull-right center">
+        <%= gravatar_for @topic.coach, size:200 %>
+        <p>
+            <h5>Brought to you by: <%= @topic.coach.coachname %></h5>
+        </p>
+    </div>
+    <div class="col-md-8">
+        <h3></h3>
+        <div class="well">
+            <strong><%= @topic.coach.coachname %> says:</strong><br/>
+            <%= @topic.body %>
+        </div>
+    </div>
+</div>
+
+<h5><%= link_to "Return to Topics listing", topics_path, class: "btn btn-warning btn-small" %></h5>
