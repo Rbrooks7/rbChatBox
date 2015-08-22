@@ -9,6 +9,9 @@
     <div class="col-md-8">
         <%= link_to "Edit this topic", edit_topic_path(@topic), class: "btn btn-success pull-right" %>
         <h3>created: <%= time_ago_in_words(@topic.created_at) %> ago</h3>
+        <div class="show_topic_img">
+            <%= image_tag(@topic.picture.url, class: "gravatar") if @topic.picture? %>
+        </div>
         <div class="well">
             <strong><%= @topic.coach.coachname %> says:</strong><br/>
             <%= @topic.body %>

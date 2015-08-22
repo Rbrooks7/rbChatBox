@@ -1,4 +1,4 @@
-<h1>All Topics</h1>
+<%= render 'shared/page_title', title: "All Topics" %>
 <hr/>
 
 <% @topics.each do |topic| %>
@@ -11,12 +11,15 @@
             </section>
         </div>
         
-        <div class="col-lg-8 well">
+        <div class="col-lg-6 well">
             <h4><%= link_to topic.title, topic_path(topic) %></h4>
             <p><%= topic.body %></p>
             <p>
                 <span class="quiet"><small><%= time_ago_in_words(topic.created_at) %> ago</small></span>
             </p>
+        </div>
+        <div class="col-md-4">
+            <%= image_tag(topic.picture.url, size: "250x150", class: "gravatar") if topic.picture? %>
         </div>
     </div>
     <hr/>
