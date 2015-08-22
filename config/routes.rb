@@ -15,6 +15,10 @@ Rails.application.routes.draw do
       post 'like'
     end
   end
+  
+  resources :coaches, except: [:new]
+  
+  get '/register', to: 'coaches#new'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
