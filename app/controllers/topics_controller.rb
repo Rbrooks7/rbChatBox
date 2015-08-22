@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
     
     def index
-      @topics = Topic.all
+      @topics = Topic.paginate(page: params[:page], per_page: 5)
     end
     
     def show
@@ -38,6 +38,17 @@ class TopicsController < ApplicationController
       else
         render :edit
       end
+    end
+    
+    def like 
+      @topic = Topic.find(params[:id])
+      like = Like.create(like: params[:like], coach: Coach.first, topic: @topic)
+      if like.valid?
+        flash[:success] = "Your selection was successful"
+      else
+        flash[:danger] = "You can only like/dislike a post once"
+      end
+      redirect_to :back
     end
     
     

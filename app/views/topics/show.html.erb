@@ -15,6 +15,14 @@
         <div class="well">
             <strong><%= @topic.coach.coachname %> says:</strong><br/>
             <%= @topic.body %>
+            <div class="pull-right">
+                <%= link_to like_topic_path(@topic, like: true), method: :post do %>
+                    <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp; <%= @topic.thumbs_up_total %>
+                <% end %>&nbsp;&nbsp;&nbsp;&nbsp;
+                <%= link_to like_topic_path(@topic, like: false), method: :post do %>
+                    <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp; <%= @topic.thumbs_down_total %>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>

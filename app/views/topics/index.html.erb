@@ -1,5 +1,6 @@
 <%= render 'shared/page_title', title: "All Topics" %>
 <hr/>
+<%= will_paginate %>
 
 <% @topics.each do |topic| %>
     <div class="row">
@@ -15,8 +16,17 @@
             <h4><%= link_to topic.title, topic_path(topic) %></h4>
             <p><%= topic.body %></p>
             <p>
-                <span class="quiet"><small><%= time_ago_in_words(topic.created_at) %> ago</small></span>
+                <span class="quiet"><small><%= time_ago_in_words(topic.created_at) %> ago</small></span><br/>
+                <span class="quiet"><small>updated <%= time_ago_in_words(topic.updated_at) %> ago</small></span>
             </p>
+            <div class="pull-right">
+                <%= link_to like_topic_path(topic, like: true), method: :post do %>
+                    <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp; <%= topic.thumbs_up_total %>
+                <% end %>&nbsp;&nbsp;&nbsp;&nbsp;
+                <%= link_to like_topic_path(topic, like: false), method: :post do %>
+                    <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp; <%= topic.thumbs_down_total %>
+                <% end %>
+            </div>
         </div>
         <div class="col-md-4">
             <%= image_tag(topic.picture.url, size: "250x150", class: "gravatar") if topic.picture? %>
@@ -24,3 +34,5 @@
     </div>
     <hr/>
 <% end %>
+
+<%= will_paginate %>

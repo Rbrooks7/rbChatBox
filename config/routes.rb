@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   
   get '/home', to: 'pages#home'
   resources :topics
-
+  
+  #likes route
+  resources :topics do
+    member do 
+      post 'like'
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

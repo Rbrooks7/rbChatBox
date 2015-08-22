@@ -1,5 +1,6 @@
 class Coach < ActiveRecord::Base
     has_many :topics
+    has_many :likes
     before_save { self.email = email.downcase }
     validates :coachname, presence: true, length: {minimum: 3, maximum: 40}
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
