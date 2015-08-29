@@ -1,29 +1,38 @@
-<div class="center jumbotron">
-    <h1>Welcome to the chatBox</h1>
-    <h2>This is where keeping it real goes wrong</h2>
-    
-    <%= link_to "Sign up Now", register_path, class: "btn btn-lg btn-success" %>
-</div>
-<div class="row">
-  <div class="col-lg-4">
-    <h3 class="midrow">
-      View Topics as Guest User
-    </h3>
-    <h2 class="left">Browse and view</h2>
-    <p><%= link_to "Browse topics", topics_path, class: "btn btn-warning btn-small" %></p>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active">
+            <%= link_to "Browse topics", topics_path, class: "rb-nav" %>
+          </li>
+          <li>
+            <%= link_to "Sign In", login_path, class: "rb-nav" %>
+          </li>
+          <li>
+            <%= link_to "Logout", "", class: "rb-nav" %>
+          </li>
+          <li><a href="#">Export</a></li>
+        </ul>
+        <ul class="nav nav-sidebar">
+          <li><a href="">Nav item</a></li>
+          <li><a href="">Nav item again</a></li>
+          <li><a href="">One more nav</a></li>
+          <li><a href="">Another nav item</a></li>
+          <li><a href="">More navigation</a></li>
+        </ul>
+        <ul class="nav nav-sidebar">
+          <li><a href="">Nav item again</a></li>
+          <li><a href="">One more nav</a></li>
+          <li><a href="">Another nav item</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="center jumbotron">
+          <h1>Welcome to the chatBox</h1>
+          <h2>This is where keeping it real goes wrong</h2>
+          
+          <%= link_to "Sign up Now", register_path, class: "btn btn-lg btn-success" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-lg-4">
-    <h3 class="midrow">
-      Sign in to your account
-    </h3>
-    <h2 class="left">Login</h2>
-    <p><%= link_to "Log-in to your account", login_path, class: "btn btn-warning btn-small" %></p>
-  </div>
-  <div class="col-lg-4">
-    <h3 class="midrow">
-      View Posts as Guest User
-    </h3>
-    <h2 class="left">Browse and view as guest</h2>
-    <p><%= link_to "Logout", "", class: "btn btn-warning btn-small" %></p>
-  </div>
-</div>

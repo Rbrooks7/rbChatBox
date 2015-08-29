@@ -85,3 +85,23 @@ span.picture {
 .show_topic_img {
     margin: 10px;
 }
+.sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #5c5c5c;
+    border-right: 1px solid #eee;
+    padding-top: 45px;
+}
+.main {
+    padding: 20px;
+}
+.rb-nav {
+    color: #ff8c00;
+}
