@@ -1,0 +1,19 @@
+<%= render 'shared/page_title', title: "All Users" %>
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 center">
+        <%= will_paginate %>
+    </div>
+</div>
+
+<% @coaches.each do |coach| %>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 center">
+            <%= link_to gravatar_for(coach, size: 200), coach_path(coach) %>
+            <p>
+                <h5><%= coach.coachname %></h5>
+            </p>
+        </div>
+    </div>
+    <hr/>
+<% end %>

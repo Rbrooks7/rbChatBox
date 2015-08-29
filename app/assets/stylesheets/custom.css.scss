@@ -1,4 +1,4 @@
-$navbar-default-bg: #3099db;
+$navbar-default-bg: #00447c;
 $light-orange: #ff8c00;
 $navbar-default-color: $light-orange;
 
@@ -7,6 +7,7 @@ $navbar-default-color: $light-orange;
 @import "bootstrap";
 
 #logo {
+    background-color: #990000;
     margin-top: 10px;
     margin-bottom: 10px;
     float: left;

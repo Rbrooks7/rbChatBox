@@ -1,18 +1,21 @@
-<%= render 'shared/page_title', title: "All Topics" %>
-<hr/>
-<%= will_paginate %>
+<%= render 'shared/page_title', title: @coach.coachname %>
 
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 center">
+        <%= gravatar_for @coach, size:200 %>
+        <hr/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 center">
+        <p>Recent Posts:</p>
+        <%= will_paginate @topics %>
+    </div>
+</div>
 <% @topics.each do |topic| %>
     <div class="row">
-        
-        <div class="col-md-2">
-            <section class="coach_info center">
-                <%= link_to gravatar_for(topic.coach, size: 100), coach_path(topic.coach) %>
-                <h5>Playa: <%= topic.coach.coachname %></h5>
-            </section>
-        </div>
-        
-        <div class="col-lg-6 well">
+        <div class="col-lg-6 col-lg-offset-3 well">
             <h4><%= link_to topic.title, topic_path(topic) %></h4>
             <p><%= topic.body %></p>
             <p>
@@ -28,11 +31,5 @@
                 <% end %>
             </div>
         </div>
-        <div class="col-md-4">
-            <%= image_tag(topic.picture.url, size: "250x150", class: "gravatar") if topic.picture? %>
-        </div>
     </div>
-    <hr/>
 <% end %>
-
-<%= will_paginate %>

@@ -14,7 +14,7 @@ class TopicsController < ApplicationController
     
     def create
       @topic = Topic.new(topic_params)
-      @topic.coach = Coach.find(2)
+      @topic.coach = current_user
       
       if @topic.save
         flash[:success] = "Your post was created successfully"

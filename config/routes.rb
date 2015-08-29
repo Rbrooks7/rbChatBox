@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   resources :coaches, except: [:new]
   
   get '/register', to: 'coaches#new'
+  
+  get '/login', to: 'logins#new'
+  post '/login', to: 'logins#create'
+  get '/logout', to: 'logins#destroy'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

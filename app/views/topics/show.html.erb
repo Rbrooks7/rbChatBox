@@ -1,16 +1,18 @@
 <%= render 'shared/page_title', title: @topic.title %>
 <div class="row">
     <div class="col-md-4 pull-right center">
-        <%= gravatar_for @topic.coach, size:200 %>
+        <%= link_to gravatar_for(@topic.coach, size:200), coach_path(@topic.coach) %>
         <p>
             <h5>Brought to you by: <%= @topic.coach.coachname %></h5>
         </p>
     </div>
     <div class="col-md-8">
-        <%= link_to "Edit this topic", edit_topic_path(@topic), class: "btn btn-success pull-right" %>
+        <% if logged_in? and @topic.coach == current_user %>
+            <%= link_to "Edit this topic", edit_topic_path(@topic), class: "btn btn-success pull-right" %>
+        <% end %>
         <h3>created: <%= time_ago_in_words(@topic.created_at) %> ago</h3>
         <div class="show_topic_img">
-            <%= image_tag(@topic.picture.url, class: "gravatar") if @topic.picture? %>
+            <%= image_tag(@topic.picture.url, size: "450x300", class: "gravatar") if @topic.picture? %>
         </div>
         <div class="well">
             <strong><%= @topic.coach.coachname %> says:</strong><br/>
