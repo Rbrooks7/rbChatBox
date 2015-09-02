@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag "slick" %>
+<%= stylesheet_link_tag "slick-theme" %>
+
 <div class="container-fluid">
     <div class="row">
       <div class="col-sm-3 col-md-2 sidebar">
@@ -26,7 +29,40 @@
           <h2>This is where keeping it real goes wrong</h2>
           
           <%= link_to "Sign up Now", register_path, class: "btn btn-lg btn-success" %>
+          
+          <hr/>
+          
+          <div class="rb-carousel">
+            <div class="rb-pic">
+              <%= image_tag "DSC_0002.JPG", alt: '' %>
+            </div>
+            <div class="rb-pic">
+              <%= image_tag "bama_flag.jpg", alt: '' %>
+            </div>
+            <div class="rb-pic">
+              <%= image_tag "DSC_0002.JPG", alt: '' %>
+            </div>
+            <div class="rb-pic">
+              <%= image_tag "DSC_0002.JPG", alt: '' %>
+            </div>
+          </div>
+        
         </div>
       </div>
     </div>
   </div>
+  
+<script>
+$(document).ready(function() {
+	  $('.rb-carousel').slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      adaptiveHeight: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
+    });
+
+});
+</script>
